@@ -1,53 +1,58 @@
-function addition(){
-    let addNumberOne = prompt("What is the first number you'd like to add?");
-    let addNumberTwo = prompt("What is the number you'd like to add to number one?");
-    let addValue = parseInt(addNumberOne) + parseInt(addNumberTwo);
-    alert(`After adding your two numbers together, I got ${addValue}`);
-    reset();
+const firstField = document.querySelector(".valueOne");
+const secondField = document.querySelector(".valueTwo");
+const addButton = document.querySelector(".add");
+const subtractButton = document.querySelector(".subtract");
+const multiplyButton = document.querySelector(".multiply");
+const divideButton = document.querySelector(".divide");
+const squaredButton = document.querySelector(".square")
+let div = document.querySelector("div");
+function additionButton(){
+    let addValueOne = parseInt(firstField.value);
+    let addValueTwo = parseInt(secondField.value);
+    let addResult = addValueOne + addValueTwo; 
+    let additionResult = document.createElement("P");
+    let resultText = document.createTextNode(addResult);
+    additionResult.appendChild(resultText);
+    div.appendChild(additionResult);
 }
-function subtraction(){
-    let subtractNumberOne = prompt("What is the first number you'd like to subtract?");
-    let subtractNumberTwo = prompt("What is the number you'd like to subtract from to number one?");
-    let subtractValue = parseInt(subtractNumberOne) - parseInt(subtractNumberTwo);
-    alert(`After subtracting your second number from your first number, I got ${subtractValue}`);
-    reset();
+function subtractionButton(){
+    let subtractValueOne = parseInt(firstField.value);
+    let subtractValueTwo = parseInt(secondField.value);
+    let subtractResult = subtractValueOne - subtractValueTwo;
+    let result = document.createElement("P");
+    let resultText = document.createTextNode(subtractResult);
+    result.appendChild(resultText);
+    div.appendChild(result);
 }
-function multiplication(){
-    let multiplyNumberOne = prompt("What is the first number you'd like to multiply?");
-    let multiplyNumberTwo = prompt("What is the number you'd like to multiply to number one?");
-    let multiplyValue = parseInt(multiplyNumberOne) * parseInt(multiplyNumberTwo);
-    alert(`After multiplying your two numbers, I got ${multiplyValue}`);
-    reset();
+function multiplicationButton(){
+    let multiplyValueOne = parseInt(firstField.value);
+    let multiplyValueTwo = parseInt(secondField.value);
+    let multiplyResult = multiplyValueOne * multiplyValueTwo;
+    let result = document.createElement("P");
+    let resultText = document.createTextNode(multiplyResult);
+    result.appendChild(resultText);
+    div.appendChild(result);
 }
-function division(){
-    let divideNumberOne = prompt("What is the first number you'd like to divide?");
-    let divideNumberTwo = prompt("What is the number you'd like to divide number one by?");
-    let divideValue = parseInt(divideNumberOne) / parseInt(divideNumberTwo);
-    alert(`After adding your two numbers together, I got ${divideValue}`);
-    reset();
+function divisionButton(){
+    let divideValueOne = parseInt(firstField.value);
+    let divideValueTwo = parseInt(secondField.value);
+    let divideResult = divideValueOne / divideValueTwo;
+    let result = document.createElement("P");
+    let resultText = document.createTextNode(divideResult);
+    result.appendChild(resultText);
+    div.appendChild(result);
 }
-function mainMenu(){
-let operation = prompt("What operation will you be needing today?");
-if (operation === "addition"){
-    addition();
+function squareButton(){
+    let squareValueOne = parseInt(firstField.value);
+    let squareResult = squareValueOne * squareValueOne;
+    let result = document.createElement("P");
+    let resultText = document.createTextNode(squareResult);
+    result.appendChild(resultText);
+    div.appendChild(result);
 }
-else if (operation === "subtraction"){
-    subtraction();
-}
-else if (operation === "multiplication"){
-    multiplication();
-}
-else if (operation === "division"){
-    division();
-} 
-else {
-    alert("Sorry, that is not a valid choice. Please select 'addition', 'subtraction', 'multiplication', or 'division'.");
-}
-}
-function reset(){
-let startOver = prompt("If you would like to start over, type 'main'. If not, just click 'cancel'.");
-if (startOver === "main"){
-    mainMenu();
-}
-}
-mainMenu();
+
+addButton.addEventListener("click", additionButton);
+subtractButton.addEventListener("click", subtractionButton);
+multiplyButton.addEventListener("click", multiplicationButton);
+divideButton.addEventListener("click", divisionButton);
+squaredButton.addEventListener("click", squareButton);
